@@ -12,5 +12,16 @@
 
     <artifactId>books-catalog-dao</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>pl.sda.bookscatalog</groupId>
+            <artifactId>books-catalog</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
