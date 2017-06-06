@@ -8,9 +8,11 @@
         <project-version>1.0</project-version>
         <project-build-sourceEncoding>UTF-8</project-build-sourceEncoding>
         <project-build-java-target>1.8</project-build-java-target>
+        <hibernate-version>5.2.9.Final</hibernate-version>
+        <hibernate-validator-version>5.4.1.Final</hibernate-validator-version>
     </properties>
 
-    <groupId>pl.sda.books-catalog</groupId>
+    <groupId>pl.sda.bookscatalog</groupId>
     <artifactId>books-catalog</artifactId>
     <packaging>pom</packaging>
     <version>${project-version}</version>
@@ -47,17 +49,17 @@
         <dependencies>
             <!-- internal application modules -->
             <dependency>
-                <groupId>pl.sda.books-catalog</groupId>
+                <groupId>pl.sda.bookscatalog</groupId>
                 <artifactId>books-catalog-web</artifactId>
                 <version>${project-version}</version>
             </dependency>
             <dependency>
-                <groupId>pl.sda.books-catalog</groupId>
+                <groupId>pl.sda.bookscatalog</groupId>
                 <artifactId>books-catalog-service</artifactId>
                 <version>${project-version}</version>
             </dependency>
             <dependency>
-                <groupId>pl.sda.books-catalog</groupId>
+                <groupId>pl.sda.bookscatalog</groupId>
                 <artifactId>books-catalog-dao</artifactId>
                 <version>${project-version}</version>
             </dependency>

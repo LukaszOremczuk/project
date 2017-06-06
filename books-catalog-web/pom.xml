@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pl.sda.books-catalog</groupId>
+        <groupId>pl.sda.bookscatalog</groupId>
         <artifactId>books-catalog</artifactId>
         <version>${project-version}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>pl.sda.books-catalog</groupId>
+    <groupId>pl.sda.bookscatalog</groupId>
     <artifactId>books-catalog-web</artifactId>
     <packaging>war</packaging>
-    <name>books-catalog-web Maven Webapp</name>
+    <name>books-catalog-web</name>
 
 </project>
