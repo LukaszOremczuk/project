@@ -14,4 +14,11 @@
     <packaging>war</packaging>
     <name>books-catalog-web</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>pl.sda.bookscatalog</groupId>
+            <artifactId>books-catalog-service</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

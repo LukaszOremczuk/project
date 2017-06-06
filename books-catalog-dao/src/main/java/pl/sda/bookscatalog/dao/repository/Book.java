@@ -1,6 +1,7 @@
 package pl.sda.bookscatalog.dao.repository;
 
 import org.hibernate.envers.Audited;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,17 +18,23 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_BOOK")
     private Long idBook;
 
+    @NotEmpty
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
+    @Column(name = "ORIGINAL_TITLE")
     private String originalTitle;
 
+    @Column(name = "DESCRIPTION", length = 1000)
     private String description;
 
-    private Blob cover;
+    @Column(name = "COVER", length = 500)
+    private byte[] cover;
 
-    public Book(Long idBook, String title, String originalTitle, String description, Blob cover) {
+    public Book(Long idBook, String title, String originalTitle, String description, byte[] cover) {
         this.idBook = idBook;
         this.title = title;
         this.originalTitle = originalTitle;
@@ -67,11 +74,11 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public Blob getCover() {
+    public byte[] getCover() {
         return cover;
     }
 
-    public void setCover(Blob cover) {
+    public void setCover(byte[] cover) {
         this.cover = cover;
     }
 }

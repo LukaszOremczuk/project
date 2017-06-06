@@ -12,5 +12,11 @@
 
     <artifactId>books-catalog-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>pl.sda.bookscatalog</groupId>
+            <artifactId>books-catalog-dao</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
