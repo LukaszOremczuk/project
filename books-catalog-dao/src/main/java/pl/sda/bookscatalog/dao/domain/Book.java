@@ -1,4 +1,4 @@
-package pl.sda.bookscatalog.dao.repository;
+package pl.sda.bookscatalog.dao.domain;
 
 import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -15,6 +15,8 @@ import java.sql.Blob;
 @Table(name = "BOOK")
 @Audited
 public class Book implements Serializable {
+
+    private static final long serialVersionUID = 6614039997592638512L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,12 +36,21 @@ public class Book implements Serializable {
     @Column(name = "COVER", length = 500)
     private byte[] cover;
 
-    public Book(Long idBook, String title, String originalTitle, String description, byte[] cover) {
-        this.idBook = idBook;
+    @ManyToOne
+    @JoinColumn(name = "ID_AUTHOR")
+    private Author author;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_CATEGORY")
+    private Category category;
+
+    public Book(String title, String originalTitle, String description, byte[] cover, Author author, Category category) {
         this.title = title;
         this.originalTitle = originalTitle;
         this.description = description;
         this.cover = cover;
+        this.author = author;
+        this.category = category;
     }
 
     public Long getIdBook() {
@@ -80,5 +91,21 @@ public class Book implements Serializable {
 
     public void setCover(byte[] cover) {
         this.cover = cover;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
