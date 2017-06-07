@@ -11,6 +11,7 @@
         <hibernate-version>5.2.9.Final</hibernate-version>
         <hibernate-validator-version>5.4.1.Final</hibernate-validator-version>
         <hibernate-envers-version>5.2.10.Final</hibernate-envers-version>
+        <spring-context-version>4.3.8.RELEASE</spring-context-version>
     </properties>
 
     <groupId>pl.sda.bookscatalog</groupId>
@@ -85,6 +86,12 @@
                 <version>${hibernate-validator-version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context-version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
