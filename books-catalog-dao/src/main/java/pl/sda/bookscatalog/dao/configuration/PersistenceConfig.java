@@ -17,7 +17,7 @@ import java.util.Properties;
 
 
 @Configuration
-@EnableJpaRepositories(basePackages = "pl.sda.bookscatalog.dao.repository")
+@EnableJpaRepositories(basePackages = "pl.sda.bookscatalog.dao.repository", entityManagerFactoryRef = "entityManagerFactory")
 public class PersistenceConfig {
 
     @Value("${jdbc.driverClassName}")
