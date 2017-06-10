@@ -1,0 +1,257 @@
+body {
+    text-align: center;
+    /*background: url("/images/background.jpg") no-repeat center center fixed;*/
+    background-size: cover
+}
+
+h2 {
+    font-family: Helvetica, Georgia, SansSerif;
+    text-align: center;
+    color: darkorange;
+}
+
+#centered {
+    width: 1200px;
+    text-align: left;
+    border: 0px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.header {
+    height: 80px;
+    color: white;
+    background: darkorchid;
+    text-align: center;
+    line-height: 80px;
+}
+
+#label_h1 {
+    color: darkorange;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: Helvetica, Georgia, SansSerif;
+}
+
+#label_h2 {
+    color: darkorange;
+    font-weight: bold;
+    font-size: 1.8em;
+    font-family: "Comic Sans MS", Georgia, SansSerif;
+    font-style: italic;
+}
+
+.label {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Helvetica", Georgia, SansSerif;
+    font-size: 1.4em;
+}
+
+.label_li {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Helvetica", Georgia, SansSerif;
+}
+
+.leftbar {
+    float: left;
+    height: 462px;
+    width: 220px;
+    background: white;
+    border: 3px solid darkorchid;
+    margin-right: 15px;
+}
+
+.search {
+    margin-left: 12px;
+}
+
+table {
+    border-spacing: 2px;
+
+}
+
+table thead tr {
+    font-family: Helvetica, Georgia, SansSerif;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+table thead tr th {
+    margin-left: 0px;
+    padding: 5px;
+    background-color: indigo;
+}
+
+table tr {
+    font-family: Helvetica, Georgia, SansSerif;
+    color: black;
+    font-size: 16px;
+    background-color: thistle;
+}
+
+table tr.classEven {
+    background-color: plum;
+}
+
+table tr td, th {
+    padding: 7px;
+}
+
+#th-title {
+    width: 190px;
+}
+
+#th-origtitle {
+    width: 190px;
+}
+
+#th-author {
+    width: 190px;
+}
+
+#th-descript {
+    width: 400px;
+    text-align: center;
+}
+
+#th-cover {
+    width: 200px;
+    text-align: center;
+}
+
+
+#th-title_2 {
+    width: 190px;
+}
+
+#th-origtitle_2 {
+    width: 190px;
+}
+
+#th-author_2 {
+    width: 190px;
+}
+
+.classEven {
+    background-color: mediumpurple;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a {
+    color: white
+}
+
+a:hover {
+    text-decoration: none;
+    color: darkorange;
+}
+
+span.tooltip_message, span.tooltip_img1 {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #F20B26;
+    width: 16px;
+    height: 18px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+span.tooltip_message:hover {
+    background-color: red;
+}
+
+div.message {
+    font-family: "Helvetica", Georgia, SansSerif;
+    background-color: red;
+    opacity: 0.4;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    z-index: 1000000;
+    text-align: left;
+    width: 158px;
+    height: 90px;
+    padding: 0 0 0 5px;
+}
+
+#menu {
+    list-style: none;
+    padding: 0 0 0 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#menu li {
+    display: block;
+    background-color: darkorchid;
+    font-weight: bold;
+    font-family: "Helvetica", Georgia, SansSerif;
+    text-align: center;
+    margin: 2px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 10px;
+    display: none;
+}
+
+#menu ul li {
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: auto;
+    background-color: darkorchid;
+    padding: 3px;
+    text-align: center;
+}
+
+#menu a:hover {
+    color: darkorange
+}
+
+.input {
+    padding: 5px 15px;
+    background: darkorange;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#to_up {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+#to_up:hover {
+    opacity: 1;
+}
+
+#arrow {
+    clear: both;
+    width: 62px;
+    height: 94px;
+    filter: grayscale(0);
+    z-index: 5
+}

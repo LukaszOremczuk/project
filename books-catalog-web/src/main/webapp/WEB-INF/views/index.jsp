@@ -4,20 +4,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
+
+<%
+    String imageURL=application.getInitParameter("imageURL");
+%>
+
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>bookscatalog</title>
+    <title>Domowy katalog książek</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-<h2>DOMOWY KATALOG KSIĄŻEK</h2>
+<div id="centered">
+<jsp:include page="header.jsp" flush="true" />
+<br />
+
+
 
 <h3>Lista wszystkich książek</h3>
 <table class="tg">
     <tr>
-        <th width="200">Tytuł</th>
-        <th width="200">Tytuł oryginalny</th>
-        <th width="210">Opis</th>
+        <th width="300">Tytuł</th>
+        <th width="300">Tytuł oryginalny</th>
+        <%--<th width="400">Opis</th>--%>
+        <th width="200">Autor</th>
+        <%--<th width="100">Nazwisko autora</th>--%>
     </tr>
     <c:choose>
         <c:when test="${!empty listBooks}">
@@ -25,7 +37,9 @@
                 <tr>
                     <td>${book.title}</td>
                     <td>${book.originalTitle}</td>
-                    <td>${book.description}</td>
+                    <%--<td>${book.description}</td>--%>
+                    <td>${book.author.firstName}</td>
+                    <td>${book.author.lastName}</td>
                     <td>
                         <a href="<c:url value='/book/edit/${book.idBook}'/>">Edytuj</a>
                     </td>
@@ -35,9 +49,10 @@
                 </tr>
             </c:forEach>
         </c:when>
+
         <c:otherwise>
             <tr>
-                <td>Brak książek do wyświetlenia"/></td>
+                <td width="300">Brak książek do wyświetlenia</td>
             </tr>
         </c:otherwise>
     </c:choose>
@@ -101,5 +116,6 @@
         <%--</tr>--%>
     <%--</table>--%>
 <%--</form:form>--%>
+</div>
 </body>
 </html>
