@@ -19,6 +19,7 @@ import javax.persistence.EntityManagerFactory;
 @EnableTransactionManagement
 @Import(PersistenceConfig.class)
 public class ApplicationConfig {
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();

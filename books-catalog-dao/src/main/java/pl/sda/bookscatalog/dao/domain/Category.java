@@ -1,11 +1,15 @@
-package pl.sda.bookscatalog.dao.domain;
-
-import org.hibernate.annotations.Generated;
+package pl.sda.bookscatalog.dao.domain;//package pl.sda.bookscatalog.dao.domain;
+//
+//import org.hibernate.annotations.Generated;
+//import org.hibernate.envers.Audited;
+//import org.hibernate.validator.constraints.NotEmpty;
+//
 import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,7 +17,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table (name = "CATEGORY TABLE")
+@Table (name = "CATEGORY")
 @Audited
 public class Category implements Serializable {
 
@@ -24,19 +28,23 @@ public class Category implements Serializable {
     @Column(name = "ID_CATEGORY")
     private Long idCategory;
 
+    @Version
+    @Column(name = "LATEST_VERSION")
+    private Long version;
 
     @NotEmpty
-    @Column (name = "NAME")
+    @Column (name = "NAME", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "ID_CATEGORY")
+    @OneToMany(mappedBy = "CATEGORY")
     private Set<Book> books;
 
-    public Category(String name, Set<Book> books) {
-        this.name = name;
-        this.books = books;
+    public Category() {
     }
 
+    public Category(String name) {
+        this.name = name;
+    }
 
     public Long getIdCategory() {
         return idCategory;
@@ -44,6 +52,14 @@ public class Category implements Serializable {
 
     public void setIdCategory(Long idCategory) {
         this.idCategory = idCategory;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getName() {
@@ -60,5 +76,12 @@ public class Category implements Serializable {
 
     public void setBooks(Set<Book> books) {
         this.books = books;
+    }
+
+    public void addBook(Book book) {
+        if (this.books == null) {
+            this.books = new HashSet<>(0);
+        }
+        books.add(book);
     }
 }

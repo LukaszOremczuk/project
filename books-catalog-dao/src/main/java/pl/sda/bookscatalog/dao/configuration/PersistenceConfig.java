@@ -55,7 +55,7 @@ public class PersistenceConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setPackagesToScan("pl.sda.library.domain.entity");
+        entityManagerFactory.setPackagesToScan("pl.sda.bookscatalog.dao.domain");
         entityManagerFactory.setJpaProperties(getJpaProperties());
         entityManagerFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 

@@ -23,6 +23,10 @@ public class Book implements Serializable {
     @Column(name = "ID_BOOK")
     private Long idBook;
 
+    @Version
+    @Column(name = "LATEST_VERSION")
+    private Long version;
+
     @NotEmpty
     @Column(name = "TITLE", nullable = false)
     private String title;
@@ -37,20 +41,21 @@ public class Book implements Serializable {
     private byte[] cover;
 
     @ManyToOne
-    @JoinColumn(name = "ID_AUTHOR")
+    @JoinColumn(name = "ID_AUTHOR", nullable = false, foreignKey = @ForeignKey(name = "FK_BOOK_AUTHOR"))
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CATEGORY")
+    @JoinColumn(name = "ID_CATEGORY", nullable = false, foreignKey = @ForeignKey(name = "FK_BOOK_CATEGORY"))
     private Category category;
 
-    public Book(String title, String originalTitle, String description, byte[] cover, Author author, Category category) {
+    public Book() {
+    }
+
+    public Book(String title, String originalTitle, String description, byte[] cover) {
         this.title = title;
         this.originalTitle = originalTitle;
         this.description = description;
         this.cover = cover;
-        this.author = author;
-        this.category = category;
     }
 
     public Long getIdBook() {
@@ -59,6 +64,14 @@ public class Book implements Serializable {
 
     public void setIdBook(Long idBook) {
         this.idBook = idBook;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getTitle() {

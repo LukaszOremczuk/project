@@ -21,6 +21,7 @@ import java.util.List;
 @Transactional
 public class BookCommandService {
     private static final Logger LOGGER = LoggerFactory.getLogger(BookCommandService.class);
+
     private final BookRepository bookRepository;
 
     @Autowired

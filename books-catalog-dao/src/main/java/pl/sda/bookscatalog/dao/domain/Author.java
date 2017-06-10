@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,6 +24,10 @@ public class Author implements Serializable {
     @Column(name = "ID_AUTHOR")
     private Long idAuthor;
 
+    @Version
+    @Column(name = "LATEST_VERSION")
+    private Long version;
+
     @NotEmpty
     @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
@@ -31,13 +36,15 @@ public class Author implements Serializable {
     @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "AUTHOR", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Book> books;
 
-    public Author(String firstName, String lastName, Set<Book> books) {
+    public Author() {
+    }
+
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.books = books;
     }
 
     public Long getIdAuthor() {
@@ -46,6 +53,14 @@ public class Author implements Serializable {
 
     public void setIdAuthor(Long idAuthor) {
         this.idAuthor = idAuthor;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getFirstName() {
@@ -70,5 +85,12 @@ public class Author implements Serializable {
 
     public void setBooks(Set<Book> books) {
         this.books = books;
+    }
+
+    public void addBook(Book book) {
+        if (this.books == null) {
+            this.books = new HashSet<>(0);
+        }
+        books.add(book);
     }
 }
