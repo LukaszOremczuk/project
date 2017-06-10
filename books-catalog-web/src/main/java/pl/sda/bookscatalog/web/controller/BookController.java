@@ -27,13 +27,19 @@ public class BookController {
         this.bookCommandService = bookCommandService;
     }
 
-    @RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
-    public String index(Model model) {
+    @RequestMapping(value = {"/books"}, method = RequestMethod.GET)
+    public String books(Model model) {
         LOGGER.debug("is executed!");
         model.addAttribute("listBooks", bookCommandService.findAll());
-//        model.addAttribute("book", book);
+        return "books";
+    }
 
-        return "index";
+    @RequestMapping(value = {"/book"}, method = RequestMethod.GET)
+    public String modify(Model model) {
+        LOGGER.debug("is executed!");
+        model.addAttribute("book", new Book());
+
+        return "modify";
     }
 
     @RequestMapping(value = "/book/save", method = RequestMethod.POST)
@@ -45,16 +51,15 @@ public class BookController {
         } else {
             bookCommandService.update(book);
         }
-        return "redirect:/main";
+        return "redirect:/books";
     }
 
     @RequestMapping(value = "/book/edit/{idBook")
     public String editBook(@PathVariable("idBook") Long idBook, Model model) {
         LOGGER.debug("is executed!");
-        model.addAttribute("listBooks", bookCommandService.findAll());
         model.addAttribute("book", bookCommandService.findById(idBook));
 
-        return "index";
+        return "modify";
     }
 
     @RequestMapping(value = "/book/delete/{idBook}")
@@ -62,6 +67,6 @@ public class BookController {
         LOGGER.debug("is executed!");
         bookCommandService.delete(idBook);
 
-        return "redirect:/main";
+        return "redirect:/books";
     }
 }
