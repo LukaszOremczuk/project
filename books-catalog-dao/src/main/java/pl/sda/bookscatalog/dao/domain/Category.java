@@ -1,9 +1,9 @@
-package pl.sda.bookscatalog.dao.domain;//package pl.sda.bookscatalog.dao.domain;
-//
-//import org.hibernate.annotations.Generated;
-//import org.hibernate.envers.Audited;
-//import org.hibernate.validator.constraints.NotEmpty;
-//
+package pl.sda.bookscatalog.dao.domain;
+
+import org.hibernate.annotations.Generated;
+import org.hibernate.envers.Audited;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -36,7 +36,7 @@ public class Category implements Serializable {
     @Column (name = "NAME", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "CATEGORY")
+    @OneToMany(mappedBy = "category")
     private Set<Book> books;
 
     public Category() {

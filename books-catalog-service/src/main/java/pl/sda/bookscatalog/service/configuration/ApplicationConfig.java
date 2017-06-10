@@ -1,6 +1,7 @@
 package pl.sda.bookscatalog.service.configuration;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -18,6 +19,7 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 @EnableTransactionManagement
 @Import(PersistenceConfig.class)
+@ComponentScan(basePackages = "pl.sda.bookscatalog.service")
 public class ApplicationConfig {
 
     @Bean

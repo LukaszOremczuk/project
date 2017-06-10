@@ -36,7 +36,7 @@ public class Author implements Serializable {
     @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "AUTHOR", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Book> books;
 
     public Author() {

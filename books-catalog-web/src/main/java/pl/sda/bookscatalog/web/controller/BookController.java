@@ -27,11 +27,11 @@ public class BookController {
         this.bookCommandService = bookCommandService;
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String index(@ModelAttribute("flashBook") Book book, Model model) {
+    @RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
+    public String index(Model model) {
         LOGGER.debug("is executed!");
         model.addAttribute("listBooks", bookCommandService.findAll());
-        model.addAttribute("book", book);
+//        model.addAttribute("book", book);
 
         return "index";
     }

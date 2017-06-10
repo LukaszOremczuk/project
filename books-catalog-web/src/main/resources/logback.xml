@@ -14,7 +14,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.hibernate" level="OFF"/>
+    <logger name="org.hibernate" level="INFO"/>
     <logger name="org.springframework" level="INFO"/>
 
     <logger name="pl.sda.bookscatalog" level="INFO"/>
