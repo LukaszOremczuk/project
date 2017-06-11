@@ -4,118 +4,107 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-
-<%
-    String imageURL=application.getInitParameter("imageURL");
-%>
-
 <html lang="pl">
 <head>
+    <link rel="stylesheet" type="text/css"
+          href="books-catalog-web/src/main/webapp/webjars/bootstrap/css/bootstrap.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.min.css" type="text/css"/>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Domowy katalog książek</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-<div id="centered">
-<jsp:include page="header.jsp" flush="true" />
-<br />
-
-
-
-<h3>Lista wszystkich książek</h3>
-<table class="tg">
-    <tr>
-        <th width="300">Tytuł</th>
-        <th width="300">Tytuł oryginalny</th>
-        <%--<th width="400">Opis</th>--%>
-        <th width="200">Autor</th>
-        <%--<th width="100">Nazwisko autora</th>--%>
-    </tr>
-    <c:choose>
-        <c:when test="${!empty listBooks}">
-            <c:forEach items="${listBooks}" var="book">
-                <tr>
-                    <td>${book.title}</td>
-                    <td>${book.originalTitle}</td>
-                    <%--<td>${book.description}</td>--%>
-                    <td>${book.author.firstName}</td>
-                    <td>${book.author.lastName}</td>
-                    <td>
-                        <a href="<c:url value='/book/edit/${book.idBook}'/>">Edytuj</a>
-                    </td>
-                    <td>
-                        <a href="<c:url value='/book/delete/${book.idBook}'/>">Usuń</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </c:when>
-
-        <c:otherwise>
-            <tr>
-                <td width="300">Brak książek do wyświetlenia</td>
-            </tr>
-        </c:otherwise>
-    </c:choose>
-</table>
-
-<%--<h3><spring:message code="account.form.title"/></h3>--%>
-
-<%--<c:url var="saveAction" value="/account/save"/>--%>
-
-<%--<form:form method="post" modelAttribute="account" action="${saveAction}">--%>
-    <%--<table>--%>
-        <%--<tr>--%>
-            <%--<td colspan="2">--%>
-                <%--<form:hidden path="id"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-        <%--<tr>--%>
-            <%--<td>--%>
-                <%--<form:label path="firstName">--%>
-                    <%--<spring:message code="account.form.label.firstName"/>--%>
-                <%--</form:label>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:input path="firstName"/>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:errors path="firstName"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-        <%--<tr>--%>
-            <%--<td>--%>
-                <%--<form:label path="lastName">--%>
-                    <%--<spring:message code="account.form.label.lastName"/>--%>
-                <%--</form:label>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:input path="lastName"/>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:errors path="lastName"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-        <%--<tr>--%>
-            <%--<td>--%>
-                <%--<form:label path="birthdate">--%>
-                    <%--<spring:message code="account.form.label.birthdate"/>--%>
-                <%--</form:label>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:input type="date" path="birthdate"/>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<form:errors path="birthdate"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-        <%--<tr>--%>
-            <%--<td colspan="3">--%>
-                <%--<spring:message code="account.form.submit.label" var="labelSubmit"/>--%>
-                <%--<input name="submit" type="submit" value="${labelSubmit}"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-    <%--</table>--%>
-<%--</form:form>--%>
+<div class="container">
+    <jsp:include page="header.jsp" flush="true"/>
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="navbar navbar-default" style="background-color: #66afe9">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Strona główna</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Lista książek<span class="sr-only">(current)</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Lista kategorii<span class="caret"></span></a>
+                                <ul class="dropdown-menu" style="background-color: #66afe9">
+                                    <li><a href="#">edukacyjne</a></li>
+                                    <li><a href="#">historyczne</a></li>
+                                    <li><a href="#">kryminalne</a></li>
+                                    <li><a href="#">fantasy</a></li>
+                                    <li><a href="#">sci-fi</a></li>
+                                    <li><a href="#">sensacyjne</a></li>
+                                    <li><a href="#">biograficzne</a></li>
+                                    <li><a href="#">kulinarne</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Szukaj">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Szukaj</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1 ">
+            <h3>Lista wszystkich książek</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-center">
+                    <tr class="info">
+                        <th class="text-center" width="250px">Tytuł</th>
+                        <th class="text-center" width="250px">Tytuł oryginalny</th>
+                        <th class="text-center" width="200px">Autor</th>
+                        <th class="text-center" width="250px">Akcja</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:choose>
+                        <c:when test="${!empty listBooks}">
+                            <c:forEach items="${listBooks}" var="book">
+                                <tr>
+                                    <td>${book.title}</td>
+                                    <td>${book.originalTitle}</td>
+                                    <td>${book.author.firstName} ${book.author.lastName}</td>
+                                    <td>
+                                        <a class="btn btn-primary" class="btn-sm"
+                                           href="<c:url value='/book/view/${book.idBook}'/>">Szczegóły</a>
+                                        <a class="btn bg-success" class="btn-sm"
+                                           href="<c:url value='/book/edit/${book.idBook}'/>">Edytuj</a>
+                                        <a class="btn bg-danger" class="btn-sm"
+                                           href="<c:url value='/book/delete/${book.idBook}'/>">Usuń</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td width="300">Brak książek do wyświetlenia</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
