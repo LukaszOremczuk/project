@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css"
-          href="books-catalog-web/src/main/webapp/webjars/bootstrap/css/bootstrap.css"/>
+    <%--<link rel="stylesheet" type="text/css"--%>
+          <%--href="books-catalog-web/src/main/webapp/webjars/bootstrap/css/bootstrap.css"/>--%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.min.css" type="text/css"/>
@@ -36,9 +36,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#">Lista książek<span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="#">Lista autorów<span class="sr-only">(current)</span></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Lista kategorii<span class="caret"></span></a>
+                                   aria-haspopup="true" aria-expanded="false">Wybierz kategorię<span class="caret"></span></a>
                                 <ul class="dropdown-menu" style="background-color: #66afe9">
                                     <li><a href="#">edukacyjne</a></li>
                                     <li><a href="#">historyczne</a></li>
