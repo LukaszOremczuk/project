@@ -70,5 +70,16 @@ public class BookController {
         return "redirect:/books";
     }
 
+    @RequestMapping(value = "/view/{idBook}", method = RequestMethod.GET)
+    public String viewBook(@PathVariable("idBook") Long idBook, Model model) {
+    LOGGER.debug("is executed!");
+    model.addAttribute("book", bookCommandService.findById(idBook));
+    return "viewBook";
+
+
+
+
+    }
+
 
 }

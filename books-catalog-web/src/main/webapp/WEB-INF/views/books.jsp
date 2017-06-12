@@ -6,8 +6,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <%--<link rel="stylesheet" type="text/css"--%>
-          <%--href="books-catalog-web/src/main/webapp/webjars/bootstrap/css/bootstrap.css"/>--%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.min.css" type="text/css"/>
@@ -18,8 +16,8 @@
 </head>
 <body>
 <div class="container">
-    <jsp:include page="header.jsp" flush="true"/>
     <div class="row">
+        <jsp:include page="header.jsp" flush="true"/>
         <div class="col-lg-12">
             <nav class="navbar navbar-default" style="background-color: #66afe9">
                 <div class="container-fluid">
@@ -39,7 +37,8 @@
                             <li class="active"><a href="#">Lista autorów<span class="sr-only">(current)</span></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Wybierz kategorię<span class="caret"></span></a>
+                                   aria-haspopup="true" aria-expanded="false">Wybierz kategorię<span
+                                        class="caret"></span></a>
                                 <ul class="dropdown-menu" style="background-color: #66afe9">
                                     <li><a href="#">edukacyjne</a></li>
                                     <li><a href="#">historyczne</a></li>
@@ -84,7 +83,7 @@
                                     <td>${book.author.firstName} ${book.author.lastName}</td>
                                     <td>
                                         <a class="btn btn-primary" class="btn-sm"
-                                           href="<c:url value='/book/view/${book.idBook}'/>">Szczegóły</a>
+                                           href="<c:url value='/view/${book.idBook}'/>">Szczegóły</a>
                                         <a class="btn bg-success" class="btn-sm"
                                            href="<c:url value='/book/edit/${book.idBook}'/>">Edytuj</a>
                                         <a class="btn bg-danger" class="btn-sm"
