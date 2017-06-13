@@ -54,7 +54,7 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @RequestMapping(value = "/book/edit/{idBook")
+    @RequestMapping(value = "/edit/{idBook}")
     public String editBook(@PathVariable("idBook") Long idBook, Model model) {
         LOGGER.debug("is executed!");
         model.addAttribute("book", bookCommandService.findById(idBook));
@@ -62,7 +62,7 @@ public class BookController {
         return "modify";
     }
 
-    @RequestMapping(value = "/book/delete/{idBook}")
+    @RequestMapping(value = "/delete/{idBook}")
     public String deleteBook(@PathVariable("idBook") Long idBook) {
         LOGGER.debug("is executed!");
         bookCommandService.delete(idBook);

@@ -53,6 +53,7 @@ public class BookCommandService {
             LOGGER.debug("Book with id " + idBook + " not found");
             throw new BookNotFoundException();
         }
+        bookRepository.delete(idBook);
     }
 
     public List<Book> findAll() {
@@ -68,6 +69,11 @@ public class BookCommandService {
 
         return dbBook;
     }
+
+    public List<Book> findAllByPartTitle(String title) {
+        return bookRepository.findAllByTitleIsContaining(title);
+    }
+
 
     private Sort sortByIdAsc() {
         return new Sort(Sort.Direction.ASC,"idBook");

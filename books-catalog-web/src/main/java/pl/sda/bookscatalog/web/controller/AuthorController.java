@@ -28,13 +28,11 @@ public class AuthorController {
     }
 
 
-    @RequestMapping (value ="/author", method = RequestMethod.GET)
-    public String showAllAuthors (Model model) {
+    @RequestMapping (value ="/authors", method = RequestMethod.GET)
+    public String authors (Model model) {
     LOGGER.debug("is executed");
-        model.addAttribute("authors", authorCommandService.findAll());
+        model.addAttribute("listAuthors", authorCommandService.findAll());
 
-        return "author";
+        return "authors";
     }
-
-
 }
