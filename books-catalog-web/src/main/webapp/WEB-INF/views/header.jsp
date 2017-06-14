@@ -54,9 +54,9 @@
                         </ul>
                         <form class="navbar-form navbar-left">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Szukaj">
+                                <input type="text" class="form-control" placeholder="Szukaj (tytuł lub część)">
                             </div>
-                            <button type="submit" class="btn btn-primary">Szukaj</button>
+                            <button type="submit" class="btn btn-primary"><a href="searchBook">Szukaj</a></button>
                         </form>
                     </div>
                 </div>

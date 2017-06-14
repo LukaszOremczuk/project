@@ -75,11 +75,12 @@ public class BookController {
     LOGGER.debug("is executed!");
     model.addAttribute("book", bookCommandService.findById(idBook));
     return "viewBook";
-
-
-
-
     }
 
-
+    @RequestMapping(value = "/search/{partOfTitle}", method = RequestMethod.GET)
+    public String searchBooks(@PathVariable("partOfTitle") String partOfTitle, Model model) {
+        LOGGER.debug("is executed!");
+        model.addAttribute("listBooks", bookCommandService.findAllByPartTitle(partOfTitle));
+        return "search";
+    }
 }
