@@ -5,7 +5,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Blob;
 
 /**
  * Created by jacek on 06.06.17.
@@ -121,4 +120,5 @@ public class Book implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

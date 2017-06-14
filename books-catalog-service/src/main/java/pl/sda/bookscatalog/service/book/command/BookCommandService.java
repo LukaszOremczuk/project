@@ -6,8 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.sda.bookscatalog.dao.domain.Author;
 import pl.sda.bookscatalog.dao.domain.Book;
+import pl.sda.bookscatalog.dao.domain.Category;
+import pl.sda.bookscatalog.dao.repository.AuthorRepository;
 import pl.sda.bookscatalog.dao.repository.BookRepository;
+import pl.sda.bookscatalog.dao.repository.CategoryRepository;
+import pl.sda.bookscatalog.service.book.dto.AddBookDTO;
 import pl.sda.bookscatalog.service.book.exception.BookNotFoundException;
 
 import java.util.List;
@@ -23,14 +28,41 @@ public class BookCommandService {
     private static final Logger LOGGER = LoggerFactory.getLogger(BookCommandService.class);
 
     private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
+    private final CategoryRepository categoryRepository;
+
 
     @Autowired
-    public BookCommandService(BookRepository bookRepository) {
+    public BookCommandService(BookRepository bookRepository, AuthorRepository authorRepository, CategoryRepository categoryRepository) {
         this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public Long create(Book book) {
         bookRepository.save(book);
+        return book.getIdBook();
+    }
+
+    public Long create(AddBookDTO bookDTO) {
+        Author author = new Author();
+        author.setFirstName(bookDTO.getAuthorFirstName());
+        author.setLastName(bookDTO.getAuthorLastName());
+
+        Category category = new Category();
+        category.setName(bookDTO.getCategoryName());
+        categoryRepository.saveAndFlush(category);
+
+        Book book = new Book();
+        book.setTitle(bookDTO.getTitleBook());
+        book.setOriginalTitle(bookDTO.getOriginalTitleBook());
+        book.setDescription(bookDTO.getDescriptionBook());
+        book.setAuthor(author);
+        book.setCategory(category);
+        author.addBook(book);
+
+        authorRepository.save(author);
+
         return book.getIdBook();
     }
 
@@ -76,6 +108,6 @@ public class BookCommandService {
 
 
     private Sort sortByIdAsc() {
-        return new Sort(Sort.Direction.ASC,"idBook");
+        return new Sort(Sort.Direction.ASC, "idBook");
     }
 }
