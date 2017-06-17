@@ -58,5 +58,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+<jsp:include page="footer.jsp" flush="true"/>
 </body>
 </html>

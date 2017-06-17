@@ -6,8 +6,12 @@
 <c:url var="listbookURL" value="/books"/>
 <c:url var="listauthorsURL" value="/authors"/>
 <c:url var="addbookURL" value="/addBook"/>
+<c:url var="homeURL" value="/home"/>
 
 
+<!DOCTYPE html>
+<html lang="pl">
+<body>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -29,7 +33,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Strona główna</a>
+                        <a class="navbar-brand" href="${homeURL}">Strona główna</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
@@ -64,3 +68,7 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -37,6 +37,7 @@ public class Author implements Serializable {
     private String lastName;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "author", orphanRemoval = true)
     private Set<Book> books;
 
     public Author() {

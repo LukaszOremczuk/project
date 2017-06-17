@@ -25,7 +25,7 @@ public class MainController {
     private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
     @RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
-    public String index(Model model) {
-        return "redirect:/books";
+    public String home(Model model) {
+        return "redirect:/home";
     }
 }

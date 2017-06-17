@@ -18,16 +18,15 @@
 </head>
 <body>
 <jsp:include page="header.jsp" flush="true"/>
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <h2 style="color: yellow">
-                <span> ${book.title} </span>
-            </h2>
-            <h4><strong>Kategoria: </strong> ${book.category.name}</h4>
-            <h4><strong>Tytuł oryginalny: </strong> ${book.originalTitle}</h4>
-            <h4><strong>Autor: </strong> ${book.author.firstName} ${book.author.lastName}</h4>
-            <h4><strong>Opis: </strong> ${book.description}</h4>
+        <div class="col-lg-12">
+            <img src="<c:url value="/webjars/books.jpg"/>" style="width: 1133px; height: 400px"/>
+            <blockquote class="blockquote-reverse" style="font-style: italic; position: absolute; top: 40%; left: 44%">
+                <p style="text-shadow: 5px 5px 2px #000000; font-size: 2.2em">"Kto czyta książki, żyje podwójnie"</p>
+                    <small style="text-shadow: 5px 5px 2px #000000 ;font-style: italic; font-size: 2.2em">Umberto Eco</small>
+            </blockquote>
         </div>
     </div>
 </div>

@@ -42,9 +42,9 @@
                                         <a class="btn btn-primary" class="btn-sm"
                                            href="<c:url value='/view/${book.idBook}'/>">Szczegóły</a>
                                         <a class="btn bg-success" class="btn-sm"
-                                           href="<c:url value='/book/edit/${book.idBook}'/>">Edytuj</a>
+                                           href="<c:url value='/edit/${book.idBook}'/>">Edytuj</a>
                                         <a class="btn bg-danger" class="btn-sm"
-                                           href="<c:url value='/book/delete/${book.idBook}'/>">Usuń</a>
+                                           href="<c:url value='/delete/${book.idBook}'/>">Usuń</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -63,5 +63,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+<jsp:include page="footer.jsp" flush="true"/>
 </body>
 </html>

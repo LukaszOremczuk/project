@@ -36,7 +36,8 @@ public class Category implements Serializable {
     @Column (name = "NAME", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "category", orphanRemoval = true)
     private Set<Book> books;
 
     public Category() {

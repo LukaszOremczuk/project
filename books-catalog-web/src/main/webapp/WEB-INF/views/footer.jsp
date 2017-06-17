@@ -3,6 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<c:url var="listbookURL" value="/books"/>
+<c:url var="listauthorsURL" value="/authors"/>
+<c:url var="addbookURL" value="/addBook"/>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,22 +21,16 @@
     <title>Domowy katalog książek</title>
 </head>
 <body>
-<jsp:include page="header.jsp" flush="true"/>
 <div class="container">
     <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <h2 style="color: yellow">
-                <span> ${book.title} </span>
-            </h2>
-            <h4><strong>Kategoria: </strong> ${book.category.name}</h4>
-            <h4><strong>Tytuł oryginalny: </strong> ${book.originalTitle}</h4>
-            <h4><strong>Autor: </strong> ${book.author.firstName} ${book.author.lastName}</h4>
-            <h4><strong>Opis: </strong> ${book.description}</h4>
+        <div class="col-lg-12">
+            <div class="panel-footer" style="position:fixed; bottom: 0; padding: 2px 430px">
+                <p>© 2017 by Jacek Sabat * All rights reserved<br>
+            </div>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/js/bootstrap.min.js"></script>
-<jsp:include page="footer.jsp" flush="true"/>
 </body>
 </html>

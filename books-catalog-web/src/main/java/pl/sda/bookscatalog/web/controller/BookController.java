@@ -27,6 +27,12 @@ public class BookController {
         this.bookCommandService = bookCommandService;
     }
 
+    @RequestMapping(value = {"/home"})
+    public String home () {
+        LOGGER.debug("is executed!");
+        return "home";
+    }
+
     @RequestMapping(value = {"/books"}, method = RequestMethod.GET)
     public String books(Model model) {
         LOGGER.debug("is executed!");

@@ -22,15 +22,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-            <h2><span>DODAJ KSIĄŻKĘ:</span>
-            </h2>
+            <h3><span>DODAJ KSIĄŻKĘ:</span></h3>
             <c:url var="addBook" value="/addBook"/>
             <form:form method="post" modelAttribute="book" action="${addBook}">
                 <form class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
-                            <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-danger">Zapisz</button>
+                            <div class="col-lg-6 col-lg-offset-6">
+                                <button type="reset" class="btn btn-danger">
+                                    Cofnij <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    Dodaj <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
                             </div>
                         </div>
 
@@ -56,19 +60,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-2 control-label">Imię autora:</label>
+                            <label class="col-lg-2 control-label">Autor:</label>
                             <div class="col-lg-10">
-                                <form:input path="authorFirstName"></form:input>
+                                <form:input path="authorFirstName" placeholder="Imię"></form:input> <form:input
+                                    path="authorLastName" placeholder="Nazwisko"></form:input>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">Nazwisko autora:</label>
-                            <div class="col-lg-10">
-                                <form:input path="authorLastName"></form:input>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="textArea" class="col-lg-2 control-label">Opis książki:</label>
                             <div class="col-lg-8">
@@ -82,5 +79,8 @@
         </div>
     </div>
 </div>
+<jsp:include page="footer.jsp" flush="true"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
