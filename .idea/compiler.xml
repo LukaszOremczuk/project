@@ -11,7 +11,7 @@
         <module name="books-catalog-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="books-catalog" target="1.8" />
       <module name="books-catalog-dao" target="1.8" />
       <module name="books-catalog-service" target="1.8" />
